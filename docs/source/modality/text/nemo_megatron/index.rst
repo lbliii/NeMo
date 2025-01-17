@@ -1,8 +1,7 @@
-============
-Trash
-============
+==================
+Nemo Megatron
+==================
 
-All the articles in here will be deleted.
 
 
 .. toctree::

@@ -1,5 +1,6 @@
-Optimizations
-=============
+==========
+Modality
+==========
 
 .. toctree::
    :maxdepth: 2
@@ -8,4 +9,3 @@ Optimizations
 
    ./*
    ./*/index
-

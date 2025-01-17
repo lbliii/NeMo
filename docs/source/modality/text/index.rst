@@ -1,8 +1,8 @@
-============
-Trash
+===========
+Text Modality
 ============
 
-All the articles in here will be deleted.
+
 
 
 .. toctree::

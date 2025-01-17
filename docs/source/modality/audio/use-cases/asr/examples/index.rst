@@ -1,5 +1,5 @@
-Optimizations
-=============
+Examples
+========
 
 .. toctree::
    :maxdepth: 2
@@ -8,4 +8,3 @@ Optimizations
 
    ./*
    ./*/index
-

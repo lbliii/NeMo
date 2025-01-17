@@ -1,12 +1,6 @@
 Get Started
 ============
 
-.. # define a hard line break for html
-.. |br| raw:: html
-
-    <br />
-
-.. _dummy_header:
 
 NVIDIA NeMo Framework is an end-to-end, cloud-native framework for building, customizing, and deploying generative AI models anywhere. It allows for the creation of state-of-the-art models across a wide array of domains, including speech, language, and vision. For detailed information on utilizing NeMo in your generative AI workflows, refer to the `NeMo Framework User Guide <https://docs.nvidia.com/nemo-framework/user-guide/latest/index.html>`_.
 
@@ -92,3 +86,12 @@ License
 -------
 
 NeMo is released under the `Apache 2.0 license <https://github.com/NVIDIA/NeMo/blob/stable/LICENSE>`_.
+
+
+.. toctree::
+   :maxdepth: 2
+   :glob:
+   :hidden:
+
+   ./*
+   ./*/index
