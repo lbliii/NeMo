@@ -37,13 +37,13 @@ For quick guides and tutorials, see the "Getting started" section below.
 
 .. toctree::
    :maxdepth: 2
-   :caption: Getting Started
-   :name: starthere
    :titlesonly:
 
-   starthere/intro
-   starthere/fundamentals
-   starthere/tutorials
+   get-started/index
+   get-started/fundamentals
+   get-started/tutorials
+
+
 
 For more information, browse the developer docs for your area of interest in the contents section below or on the left sidebar.
 
