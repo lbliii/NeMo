@@ -146,3 +146,41 @@ References
     :style: plain
     :labelprefix: adapters
     :keyprefix: adapters-
+
+
+Performance Considerations 
+---------------------------
+
+Accelerate Pipeline Processing
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+You can accelerate the splitting pipeline using NVIDIA's `NVDEC video decoder <https://docs.nvidia.com/video-technologies/video-codec-sdk/12.1/nvdec-video-decoder-api-prog-guide/index.html>`_  and `NVENC video encoder <https://docs.nvidia.com/video-technologies/video-codec-sdk/11.1/nvenc-video-encoder-api-prog-guide/index.html>`_ by setting the following parameters.
+
+.. note::
+    Not all GPUs support NVENC (``h264_nvenc``). Verify your GPU supports NVENC before configuring the following parameters.
+
+.. list-table:: 
+   :header-rows: 1
+
+   * - Parameter
+     - Description
+     - Default Value
+   * - ``--nvdec-for-clipping``
+     - Specifies an integer number of NVDEC decoders to use for the clipping stage. Set to ``0`` to use CPU decoding.
+     - ``0``
+   * - ``--encoder``
+     - Specifies the encoder used for transcoding clips. Can be set to either ``libopenh264`` or ``h264_nvenc``. If you choose to use ``h264_nvenc``, ensure that your GPU supports the hardware encoder.
+     - ``libopenh264``
+   * - ``--use-hwaccel-for-transcoding``
+     - Specifies whether to use a hardware accelerator for transcoding. If used when ``--encoder`` is set to ``h264_nvenc``, the hardware accelerator will be ``NVENC``. If unset, the hardware accelerator is automatically chosen by ``ffmpeg``.
+     - N/A
+
+
+Reduce Memory Requirements
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+If you need to run the splitting pipeline on less than 38 GB of VRAM, reduce the memory requirements by:
+
+1. Lowering the number of clips captioned at once by setting the ``--qwen-batch-size`` argument to a lower value. By default, this parameter is set to ``16``.
+2. Applying fp8 weights for the Qwen model using the ``--fp8-weights-for-qwen`` argument.
+
+We've observed GPU memory usage around 21 GB when ``--qwen-batch-size=1`` and ``--fp8-weights-for-qwen`` are set.
